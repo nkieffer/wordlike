@@ -2,7 +2,7 @@
 """
 Generate wordlike strings based on patterns of strings found in a list of input string.
 
-If you can find a practicle application for this module, please let me know!
+If you can find a practical application for this module, please let me know!
 """
 from random import choice, randint
 import pathlib
@@ -26,19 +26,20 @@ def get_word(word_list, lookahead=1, start=None):
     Arguments:
     word_list -- list of '\\n' terminated strings
     lookahead -- index used to match subsequent characters in the string
+    start     -- string of characters to start generation
     """    
     if start:
         lookahead = len(start)
     else:
         start = start or choice(word_list)[:lookahead]
-    o = start[0]
+    generated_word = start[0]
     while "\n" not in o:
         next = choice([word for word in word_list if start in word])
-        shift = next.index(start) +1
+        shift = next.index(start) + 1
         chunk = next[shift:shift+lookahead]
-        o += chunk[0]
+        generated_word += chunk[0]
         start =  chunk
-    return o.strip()
+    return generated_word.strip()
 
 if __name__=="__main__":
     import argparse
