@@ -33,7 +33,7 @@ def get_word(word_list, lookahead=1, start=None):
     else:
         start = start or choice(word_list)[:lookahead]
     generated_word = start[0]
-    while "\n" not in o:
+    while "\n" not in generated_word:
         next = choice([word for word in word_list if start in word])
         shift = next.index(start) + 1
         chunk = next[shift:shift+lookahead]
