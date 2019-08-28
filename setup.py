@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="wordlike-nathankieffer",
-    version="0.0.4",
+    name="wordlike",
+    version="0.0.2",
     author="Nathan Kieffer",
     author_email="nathankieffer@gmail.com",
     description="Generates pronounceable nonsense words using Markov chains.",
